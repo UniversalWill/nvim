@@ -15,7 +15,7 @@ require("lazy").setup({
 	{ 'phaazon/hop.nvim' },
 	{ 'nvim-neo-tree/neo-tree.nvim',
 	  branch = "v2.x",
-	  dependencies = { 
+	  dependencies = {
 		"nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim", "s1n7ax/nvim-window-picker"
 		}
@@ -23,5 +23,7 @@ require("lazy").setup({
 	{ 'nvim-treesitter/nvim-treesitter' },
 	{ 'williamboman/mason.nvim' },
 	{ 'williamboman/mason-lspconfig.nvim' },
-	{ 'neovim/nvim-lspconfig' }
+	{ 'neovim/nvim-lspconfig' },
+	{ 'edeneast/nightfox.nvim' },
+	{ 'joshdick/onedark.vim' }
 })
