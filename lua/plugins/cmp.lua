@@ -61,4 +61,12 @@ cmp.setup.cmdline(':', {
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require('lspconfig')['tsserver'].setup {capabilities = capabilities}
+-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+require('lspconfig')['pyright'].setup {capabilities = capabilities}
+require('lspconfig')['lua_ls'].setup {capabilities = capabilities}
+require('lspconfig')['bashls'].setup {capabilities = capabilities}
+require('lspconfig')['ccls'].setup {capabilities = capabilities}
+require('lspconfig')['csharp_ls'].setup {capabilities = capabilities}
+require('lspconfig')['docker_compose_language_service'].setup {capabilities = capabilities}
+require('lspconfig')['dockerls'].setup {capabilities = capabilities}
+require('lspconfig')['ltex'].setup {capabilities = capabilities}
