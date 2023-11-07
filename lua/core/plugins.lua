@@ -25,6 +25,17 @@ require("lazy").setup({
     { 'nvim-treesitter/nvim-treesitter' },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
+    {
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "jose-elias-alvarez/null-ls.nvim",
+        },
+        config = function()
+            require("your.null-ls.config") -- require your null-ls config here (example below)
+        end,
+    },
     { 'neovim/nvim-lspconfig' },
     { 'edeneast/nightfox.nvim' },
     { 'joshdick/onedark.vim' },
