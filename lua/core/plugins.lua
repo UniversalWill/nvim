@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -28,7 +29,8 @@ require("lazy").setup({
     { 'edeneast/nightfox.nvim' },
     { 'joshdick/onedark.vim' },
     { 'hrsh7th/cmp-nvim-lsp' }, { 'hrsh7th/cmp-buffer' }, { 'hrsh7th/cmp-path' },
-    { 'hrsh7th/cmp-cmdline' }, { 'hrsh7th/nvim-cmp' },
+    { 'hrsh7th/cmp-cmdline' }, { 'hrsh7th/nvim-cmp' }, { 'hrsh7th/vim-vsnip' },
+    { 'hrsh7th/vim-vsnip-integ' },
     {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
