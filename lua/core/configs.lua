@@ -1,7 +1,7 @@
-if vim.loop.os_uname().sysname == 'Linux' then
-	vim.api.nvim_exec('language en_US.UTF-8', true)
-else	
-	vim.api.nvim_exec('language en_US', true)
+if vim.loop.os_uname().sysname == "Linux" then
+	vim.api.nvim_exec("language en_US.UTF-8", true)
+else
+	vim.api.nvim_exec("language en_US", true)
 end
 
 vim.wo.number = true
@@ -46,12 +46,12 @@ vim.opt.smartindent = true
 
 -- Fillchars
 vim.opt.fillchars = {
-    vert = "│",
-    fold = "⠀",
-    eob = " ", -- suppress ~ at EndOfBuffer
-    -- diff = "⣿", -- alternatives = ⣿ ░ ─ ╱
-    msgsep = "‾",
-    foldopen = "▾",
-    foldsep = "│",
-    foldclose = "▸"
+	vert = "│",
+	fold = "⠀",
+	eob = " ", -- suppress ~ at EndOfBuffer
+	-- diff = "⣿", -- alternatives = ⣿ ░ ─ ╱
+	msgsep = "‾",
+	foldopen = "▾",
+	foldsep = "│",
+	foldclose = "▸",
 }
