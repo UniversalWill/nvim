@@ -1,4 +1,8 @@
-vim.api.nvim_exec('language en_US', true)
+if vim.loop.os_uname().sysname == 'Linux' then
+	vim.api.nvim_exec('language en_US.UTF-8', true)
+else	
+	vim.api.nvim_exec('language en_US', true)
+end
 
 vim.wo.number = true
 vim.wo.relativenumber = true
