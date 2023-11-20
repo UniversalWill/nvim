@@ -4,7 +4,7 @@ lspconfig.pyright.setup {}
 lspconfig.lua_ls.setup{}
 lspconfig.bashls.setup{}
 lspconfig.ccls.setup{}
-lspconfig.csharp_ls.setup{}
+ls pconfig.csharp_ls.setup{}
 lspconfig.docker_compose_language_service.setup{}
 lspconfig.dockerls.setup{}
 lspconfig.ltex.setup{}
