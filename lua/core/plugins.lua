@@ -26,12 +26,6 @@ require("lazy").setup({
 	},
 	{ "nvim-treesitter/nvim-treesitter" },
 
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	},
-
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{
@@ -78,4 +72,8 @@ require("lazy").setup({
 
 	{ "stevearc/dressing.nvim" },
 	{ "ziontee113/icon-picker.nvim" },
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 })
