@@ -26,7 +26,7 @@ require("lazy").setup({
 	},
 	{ "nvim-treesitter/nvim-treesitter" },
 
-	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason.nvim", build = ":MasonUpdate" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{
 		"jay-babu/mason-null-ls.nvim",
@@ -72,8 +72,15 @@ require("lazy").setup({
 
 	{ "stevearc/dressing.nvim" },
 	{ "ziontee113/icon-picker.nvim" },
+
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+
+	{ "windwp/nvim-autopairs" },
+
+	{ "akinsho/bufferline.nvim" },
+
+	{ "terrortylor/nvim-comment" },
 })
