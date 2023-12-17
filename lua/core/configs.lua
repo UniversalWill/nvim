@@ -1,3 +1,9 @@
+if vim.loop.os_uname().sysname == "Linux" then
+	vim.api.nvim_exec("language en_US.UTF-8", true)
+else
+	vim.api.nvim_exec("language en_US", true)
+end
+
 vim.wo.number = true
 vim.wo.relativenumber = true
 
@@ -11,7 +17,7 @@ vim.opt.wrap = false
 vim.wo.linebreak = true
 vim.opt.virtualedit = "block"
 vim.opt.undofile = true
-vim.opt.shell = "/bin/zsh"
+vim.opt.shell = "pwsh"
 
 -- Mouse
 vim.opt.mouse = "a"
@@ -40,12 +46,12 @@ vim.opt.smartindent = true
 
 -- Fillchars
 vim.opt.fillchars = {
-    vert = "│",
-    fold = "⠀",
-    eob = " ", -- suppress ~ at EndOfBuffer
-    -- diff = "⣿", -- alternatives = ⣿ ░ ─ ╱
-    msgsep = "‾",
-    foldopen = "▾",
-    foldsep = "│",
-    foldclose = "▸"
+	vert = "│",
+	fold = "⠀",
+	eob = " ", -- suppress ~ at EndOfBuffer
+	-- diff = "⣿", -- alternatives = ⣿ ░ ─ ╱
+	msgsep = "‾",
+	foldopen = "▾",
+	foldsep = "│",
+	foldclose = "▸",
 }
