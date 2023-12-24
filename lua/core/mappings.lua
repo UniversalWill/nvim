@@ -19,3 +19,8 @@ vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 -- Tabs
 vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<s-Tab>", ":BufferLineCyclePrev<CR>")
+
+-- Terminal
+vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<CR>")
+vim.keymap.set("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>")
+vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical size=40<CR>")
