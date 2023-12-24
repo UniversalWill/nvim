@@ -21,7 +21,26 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
-			"s1n7ax/nvim-window-picker",
+			"3rd/image.nvim",
+			{
+				"s1n7ax/nvim-window-picker",
+				version = "2.*",
+				config = function()
+					require("window-picker").setup({
+						filter_rules = {
+							include_current_win = false,
+							autoselect_one = true,
+							-- filter using buffer options
+							bo = {
+								-- if the file type is one of following, the window will be ignored
+								filetype = { "neo-tree", "neo-tree-popup", "notify" },
+								-- if the buffer type is one of following, the window will be ignored
+								buftype = { "terminal", "quickfix" },
+							},
+						},
+					})
+				end,
+			},
 		},
 	},
 	{ "nvim-treesitter/nvim-treesitter" },
@@ -83,4 +102,46 @@ require("lazy").setup({
 	{ "akinsho/bufferline.nvim" },
 
 	{ "terrortylor/nvim-comment" },
+
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
+
+	{ "lewis6991/gitsigns.nvim" },
+
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"linrongbin16/lsp-progress.nvim",
+		},
+	},
+
+	{ "simrat39/symbols-outline.nvim" },
+
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+	},
+
+	{
+		"linrongbin16/lsp-progress.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lsp-progress").setup()
+		end,
+	},
+
+	{
+		"linux-cultist/venv-selector.nvim",
+		dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
+	},
 })

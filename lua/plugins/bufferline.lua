@@ -5,9 +5,9 @@ require("bufferline").setup({
 		offsets = {
 			{
 				filetype = "neo-tree",
-				text = "File Explorer",
+				text = "Neo Tree",
 				separator = true,
-				padding = 1,
+				-- padding = 1,
 			},
 		},
 		diagnostics = "nvim_lsp",
