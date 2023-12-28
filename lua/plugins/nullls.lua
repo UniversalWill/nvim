@@ -5,16 +5,15 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	sources = {
 		null_ls.builtins.diagnostics.pylint.with({
+			prefer_local = "C:\\Users\\Gena\\.pyenv\\pyenv-win\\versions\\3.12.1",
 			diagnostics_postprocess = function(diagnostic)
 				diagnostic.code = diagnostic.message_id
 			end,
 		}),
 
 		null_ls.builtins.formatting.black,
-		null_ls.builtins.diagnostics.clang_check,
 		null_ls.builtins.formatting.clang_format,
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.diagnostics.ltrs,
 		null_ls.builtins.formatting.prettierd.with({
 			filetypes = {
 				"css",
