@@ -47,23 +47,10 @@ require("lazy").setup({
 
 	{ "williamboman/mason.nvim", build = ":MasonUpdate" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	{
-		"jay-babu/mason-null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"williamboman/mason.nvim",
-			"jose-elias-alvarez/null-ls.nvim",
-		},
-		config = function()
-			require("plugins.nullls") -- require your null-ls config here (example below)
-		end,
-	},
 
-	{
-		"nvimtools/none-ls.nvim",
-		name = "null-ls",
-	},
 	{ "neovim/nvim-lspconfig" },
+
+	{ "stevearc/conform.nvim" },
 
 	{ "edeneast/nightfox.nvim" },
 	{ "joshdick/onedark.vim" },
@@ -106,7 +93,7 @@ require("lazy").setup({
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
 	{ "lewis6991/gitsigns.nvim" },
@@ -142,6 +129,12 @@ require("lazy").setup({
 
 	{
 		"linux-cultist/venv-selector.nvim",
-		dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"nvim-telescope/telescope.nvim",
+			"mfussenegger/nvim-dap-python",
+		},
 	},
+
+	{ "wakatime/vim-wakatime" },
 })

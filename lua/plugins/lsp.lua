@@ -1,7 +1,38 @@
--- Sntup language servers.
+---@diagnostic disable: undefined-global
+-- Setup language servers.
 local lspconfig = require("lspconfig")
+local fmt = require("conform")
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
 lspconfig.pyright.setup({})
-lspconfig.lua_ls.setup({})
+lspconfig.lua_ls.setup({
+	capabilities = Capabilities,
+	on_attach = On_attach,
+	settings = {
+		Lua = {
+			runtime = {
+				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+				version = "LuaJIT",
+				-- Setup your lua path
+				path = runtime_path,
+			},
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+			workspace = {
+				-- Make the server aware of Neovim runtime files
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
+})
 lspconfig.bashls.setup({})
 lspconfig.ccls.setup({})
 lspconfig.csharp_ls.setup({})
@@ -39,7 +70,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set({ "n", "v" }, "<Leader>la", vim.lsp.buf.code_action, opts)
 		-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 		vim.keymap.set("n", "<Leader>lf", function()
-			vim.lsp.buf.format({ async = true })
+			fmt.format({ async = true })
 		end, opts)
 	end,
 })
