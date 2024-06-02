@@ -136,5 +136,5 @@ require("lazy").setup({
 		},
 	},
 
-	{ "wakatime/vim-wakatime" },
+	{ "wakatime/vim-wakatime", lazy = false },
 })

@@ -38,11 +38,12 @@ wk.register({
 	},
 	x = {
 		name = "Trouble",
-		x = "Toggle",
-		w = "Workspace diagnostics",
-		d = "Document diagnostics",
-		q = "Quickfix",
-		l = "Locklist",
+		x = "Diagnostics",
+		X = "Buffer Diagnostics",
+		s = "Symbols",
+		l = "LSP",
+		L = "Location List",
+		Q = "Quickfix List",
 	},
 	v = {
 		name = "Venv",
