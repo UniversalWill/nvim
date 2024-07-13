@@ -1,140 +1,131 @@
 ---@diagnostic disable: undefined-global
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ "phaazon/hop.nvim" },
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-			"3rd/image.nvim",
-			{
-				"s1n7ax/nvim-window-picker",
-				version = "2.*",
-				config = function()
-					require("window-picker").setup({
-						filter_rules = {
-							include_current_win = false,
-							autoselect_one = true,
-							-- filter using buffer options
-							bo = {
-								-- if the file type is one of following, the window will be ignored
-								filetype = { "neo-tree", "neo-tree-popup", "notify" },
-								-- if the buffer type is one of following, the window will be ignored
-								buftype = { "terminal", "quickfix" },
-							},
-						},
-					})
-				end,
-			},
-		},
-	},
-	{ "nvim-treesitter/nvim-treesitter" },
+    { "phaazon/hop.nvim" },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+            "3rd/image.nvim",
+            {
+                "s1n7ax/nvim-window-picker",
+                version = "2.*",
+                config = function()
+                    require("window-picker").setup({
+                        filter_rules = {
+                            include_current_win = false,
+                            autoselect_one = true,
+                            -- filter using buffer options
+                            bo = {
+                                -- if the file type is one of following, the window will be ignored
+                                filetype = { "neo-tree", "neo-tree-popup", "notify" },
+                                -- if the buffer type is one of following, the window will be ignored
+                                buftype = { "terminal", "quickfix" },
+                            },
+                        },
+                    })
+                end,
+            },
+        },
+    },
+    { "nvim-treesitter/nvim-treesitter" },
 
-	{ "williamboman/mason.nvim", build = ":MasonUpdate" },
-	{ "williamboman/mason-lspconfig.nvim" },
+    { "williamboman/mason.nvim",          build = ":MasonUpdate" },
+    { "williamboman/mason-lspconfig.nvim" },
 
-	{ "neovim/nvim-lspconfig" },
+    { "neovim/nvim-lspconfig" },
 
-	{ "stevearc/conform.nvim" },
+    { "stevearc/conform.nvim" },
 
-	{ "edeneast/nightfox.nvim" },
-	{ "joshdick/onedark.vim" },
+    { "edeneast/nightfox.nvim" },
+    { "joshdick/onedark.vim" },
 
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-cmdline" },
-	{ "hrsh7th/nvim-cmp" },
-	{ "Gelio/cmp-natdat", config = true },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
+    { "hrsh7th/cmp-cmdline" },
+    { "hrsh7th/nvim-cmp" },
+    { "Gelio/cmp-natdat",                 config = true },
 
-	{
-		"L3MON4D3/LuaSnip",
-		config = function(_, _)
-			require("luasnip.loaders.from_vscode").lazy_load()
-		end,
-	},
-	{ "saadparwaiz1/cmp_luasnip" },
+    {
+        "L3MON4D3/LuaSnip",
+        tag = "v2.*",
+        run = "make install_jsregexp",
+        config = function(_, _)
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+    },
 
-	{
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
+    { "saadparwaiz1/cmp_luasnip" },
 
-	{ "stevearc/dressing.nvim" },
-	{ "ziontee113/icon-picker.nvim" },
+    {
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
 
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
+    { "stevearc/dressing.nvim" },
 
-	{ "windwp/nvim-autopairs" },
+    { "ziontee113/icon-picker.nvim" },
 
-	{ "akinsho/bufferline.nvim" },
+    { "folke/trouble.nvim" },
 
-	{ "terrortylor/nvim-comment" },
+    { "windwp/nvim-autopairs" },
 
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
+    { 'akinsho/bufferline.nvim',    version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
 
-	{ "lewis6991/gitsigns.nvim" },
+    { "terrortylor/nvim-comment" },
 
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-			"linrongbin16/lsp-progress.nvim",
-		},
-	},
+    {
+        "nvimdev/dashboard-nvim",
+        event = "VimEnter",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 
-	{ "simrat39/symbols-outline.nvim" },
+    { "lewis6991/gitsigns.nvim" },
 
-	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            "linrongbin16/lsp-progress.nvim",
+        },
+    },
 
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-		end,
-	},
+    { "akinsho/toggleterm.nvim", version = "*", config = true },
 
-	{
-		"linrongbin16/lsp-progress.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("lsp-progress").setup()
-		end,
-	},
+    -- {
+    --     "folke/which-key.nvim",
+    --     event = "VeryLazy",
+    --     init = function()
+    --         vim.o.timeout = true
+    --         vim.o.timeoutlen = 300
+    --     end,
+    --     dependencies = { 'echasnovski/mini.nvim', version = false },
+    -- },
 
-	{
-		"linux-cultist/venv-selector.nvim",
-		dependencies = {
-			"neovim/nvim-lspconfig",
-			"nvim-telescope/telescope.nvim",
-			"mfussenegger/nvim-dap-python",
-		},
-	},
+    {
+        "linrongbin16/lsp-progress.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("lsp-progress").setup()
+        end,
+    },
 
-	{ "wakatime/vim-wakatime", lazy = false },
+    { "wakatime/vim-wakatime", lazy = false },
 })

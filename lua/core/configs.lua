@@ -1,21 +1,4 @@
-if vim.loop.os_uname().sysname == "Linux" then
-	vim.api.nvim_exec("language en_US.UTF-8", true)
-else
-	vim.api.nvim_exec("language en_US", true)
-
-	local powershell_options = {
-		shell = vim.fn.executable("pwsh") == 1 and "pwsh",
-		shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-		shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-		shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-		shellquote = "",
-		shellxquote = "",
-	}
-
-	for option, value in pairs(powershell_options) do
-		vim.opt[option] = value
-	end
-end
+vim.api.nvim_exec("language en_US.UTF-8", true)
 
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -30,7 +13,7 @@ vim.opt.wrap = false
 vim.wo.linebreak = true
 vim.opt.virtualedit = "block"
 vim.opt.undofile = true
-vim.opt.shell = "pwsh"
+vim.opt.shell = "zsh"
 
 -- Mouse
 vim.opt.mouse = "a"
