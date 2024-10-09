@@ -1,3 +1,7 @@
+local os_name = os.getenv("OS")
+
+local shell
+
 vim.api.nvim_exec("language en_US.UTF-8", true)
 
 vim.wo.number = true
@@ -13,7 +17,14 @@ vim.opt.wrap = false
 vim.wo.linebreak = true
 vim.opt.virtualedit = "block"
 vim.opt.undofile = true
-vim.opt.shell = "zsh"
+
+if os_name == "Windows_NT" then
+	shell = "pwsh"
+elseif os_name == "Linux" then
+	shell = "zsh"
+end
+
+vim.opt.shell = shell
 
 -- Mouse
 vim.opt.mouse = "a"
