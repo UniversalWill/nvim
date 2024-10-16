@@ -87,9 +87,13 @@ require("lazy").setup({
 
     { "folke/trouble.nvim" },
 
-    { "windwp/nvim-autopairs" },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+    },
 
-    { 'akinsho/bufferline.nvim',    version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+    { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
 
     { "terrortylor/nvim-comment" },
 
