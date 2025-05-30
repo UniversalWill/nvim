@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 -- Basic config
 require("core.mappings")
 require("core.plugins")
@@ -22,3 +21,4 @@ require("plugins.dashboard")
 require("plugins.gitsigns")
 require("plugins.lualine")
 require("plugins.toggleterm")
+require("plugins.lsp-file-operations")
