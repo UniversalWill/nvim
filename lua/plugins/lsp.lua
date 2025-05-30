@@ -1,8 +1,8 @@
 ---@diagnostic disable: undefined-global
 -- Setup language servers.
-local lspconfig = require("lspconfig")
 local fmt = require("conform")
 local runtime_path = vim.split(package.path, ";")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
@@ -15,8 +15,13 @@ vim.lsp.enable("docker_compose_language_service")
 vim.lsp.enable("dockerls")
 vim.lsp.enable("ltex")
 
+vim.lsp.config("clangd", {
+	capabilities = capabilities,
+	on_attach = On_attach,
+})
+
 vim.lsp.config("lua_ls", {
-	capabilities = Capabilities,
+	capabilities = capabilities,
 	on_attach = On_attach,
 	settings = {
 		Lua = {
