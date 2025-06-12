@@ -2,8 +2,6 @@ local os_name = os.getenv("OS")
 
 local shell
 
-vim.api.nvim_exec("language en_US.UTF-8", true)
-
 vim.wo.number = true
 vim.wo.relativenumber = true
 
