@@ -15,7 +15,16 @@ vim.lsp.enable("docker_compose_language_service")
 vim.lsp.enable("dockerls")
 vim.lsp.enable("ltex")
 
+vim.lsp.config("bashls", {
+    capabilities = capabilities,
+    on_attach = On_attach,
+})
+
 vim.lsp.config("clangd", {
+    cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
+    init_options = {
+        fallbackFlags = { '-std=c++17' },
+    },
 	capabilities = capabilities,
 	on_attach = On_attach,
 })
