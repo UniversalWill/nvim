@@ -9,7 +9,7 @@ require("nvim-treesitter.configs").setup({
 		"dockerfile",
 		"yaml",
 		"markdown",
-		"arkdown_inline",
+		"markdown_inline",
 	},
 
 	sync_install = false,
