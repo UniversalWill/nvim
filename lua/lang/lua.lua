@@ -29,3 +29,5 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
+
+Fmt.formatters_by_ft.lua = { "stylua" }
