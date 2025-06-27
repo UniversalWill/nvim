@@ -1,4 +1,5 @@
 require("lang.base")
+require("lang.bash")
 require("lang.lua")
 -- require("lang.md")
 require("lang.python")
