@@ -153,4 +153,8 @@ require("lazy").setup({
 		---@type render.md.UserConfig
 		opts = {},
 	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+	},
 })
