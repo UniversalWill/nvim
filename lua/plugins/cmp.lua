@@ -40,7 +40,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		-- { name = "buffer" },
 		{ name = "path" },
-		{ name = "obs" },
+		-- { name = "obs" },
 		{ name = "vsnip" },
 		{ name = "natdat" },
 	},
