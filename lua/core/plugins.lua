@@ -16,7 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ "phaazon/hop.nvim" },
 	{
 		"antosha417/nvim-lsp-file-operations",
 		dependencies = {
