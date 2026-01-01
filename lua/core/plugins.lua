@@ -157,4 +157,7 @@ require("lazy").setup({
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 	},
+	{
+		url = "https://codeberg.org/andyg/leap.nvim",
+	},
 })

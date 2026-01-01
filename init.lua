@@ -22,6 +22,7 @@ require("plugins.gitsigns")
 require("plugins.lualine")
 require("plugins.toggleterm")
 require("plugins.lsp-file-operations")
+require("plugins.leap")
 
 --Language settings
 require("lang")
