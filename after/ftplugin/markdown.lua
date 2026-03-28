@@ -1,0 +1,1 @@
+-- No specific LSP config found in lua/lang/md.lua, but adding file for future use

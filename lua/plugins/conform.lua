@@ -5,9 +5,22 @@ return {
 
         fmt.setup({
             format_on_save = {
-                -- These options will be passed to conform.format()
                 timeout_ms = 500,
                 lsp_fallback = true,
+            },
+            formatters_by_ft = {
+                python = { "ruff_format", "ruff_fix" },
+                go = { "gofmt" },
+                lua = { "stylua" },
+                json = { "prettierd" },
+                jsonc = { "prettierd" },
+                yaml = { "yamlfmt" },
+                kdl = { "kdlfmt" },
+                cs = { "csharpier" },
+                c = { "clang-format" },
+                markdown = { "prettierd" },
+                bash = { "shfmt" },
+                sh = { "shfmt" },
             },
         })
 
@@ -17,7 +30,5 @@ return {
                 require("conform").format({ bufnr = args.buf })
             end,
         })
-
-        --css, scss, less, html, json, jsonc, yaml, md, md.mdx, graphql, handlebars
     end,
 }

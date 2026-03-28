@@ -4,4 +4,3 @@ require("core.plugins")
 require("core.configs")
 
 --Language settings
-require("lang")

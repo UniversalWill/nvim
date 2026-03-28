@@ -7,5 +7,3 @@ vim.lsp.config("clangd", {
 	},
 	capabilities = Capabilities,
 })
-
-Fmt.formatters_by_ft.c = { "clang-format" }
